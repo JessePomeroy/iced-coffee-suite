@@ -2,7 +2,6 @@
 
 Reusable working agreements and skills for local coding agents. Keep one editable
 skill checkout, then link selected packages into each agent's discovery directory.
-The collection works without Pi or Rhubarb.
 
 There are 25 top-level packages, including Bug Hunter's 10 nested workflows.
 The [catalog](docs/CATALOG.md) explains when to use each skill, why it exists, and
