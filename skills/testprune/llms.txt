@@ -1,0 +1,14 @@
+# Testprune local reference
+
+Read SKILL.md for the current locally adapted workflow. This copy preserves
+read-only audits, scoped cleanup, supported behavior, safe offline checks,
+repository-specific runners, and the existing default command's meaning.
+
+- SKILL.md: scope and workflow.
+- references/prompt_creator.md: read-only handoff drafting.
+- references/followups_execution.md: resolving conflicting intent.
+- references/techniques.md: runner-aware inspection and changes.
+- references/gate_script_template.sh: optional pytest example, not universal.
+- scripts/test_inventory.py: heuristic disk/Git candidates, not runner collection.
+
+Upstream: https://github.com/NeuraCerebra-AI/testprune

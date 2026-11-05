@@ -1,0 +1,3 @@
+interface:
+  display_name: "DOCX Tracked Changes"
+  short_description: "Report and resolve inline Word revisions"

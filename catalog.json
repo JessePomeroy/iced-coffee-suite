@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "name": "21st-ui-build",
+      "path": "skills/21st-ui-build",
+      "category": "Design",
+      "use": "Build substantial UI using project context and grounded 21st inspiration.",
+      "why": "Reuse existing design primitives and preserve the product identity.",
+      "requirements": "21st CLI or equivalent MCP tools; relevant access; explicit authority for paid generation or dependency changes.",
+      "source": "https://github.com/21st-dev/skill",
+      "license": "Apache-2.0; modified installed edition"
+    },
+    {
+      "name": "babysit",
+      "path": "skills/babysit",
+      "category": "Delivery",
+      "use": "Carry approved changes through PR checks, independent review, and merge.",
+      "why": "Keep delivery engaged until the requested result is verified.",
+      "requirements": "Git; GitHub CLI or equivalent; review-agent capability when requested.",
+      "source": "Personal maintained suite; earlier upstream provenance not recorded",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "blast-radius",
+      "path": "skills/blast-radius",
+      "category": "Review",
+      "use": "Trace downstream effects of a proposed change or diff.",
+      "why": "Find affected callers, formats, configuration, and lifecycle assumptions.",
+      "requirements": "Repository access; existing checks where available.",
+      "source": "https://github.com/cursor/plugins/tree/main/pstack",
+      "license": "MIT upstream influence; locally rewritten workflow"
+    },
+    {
+      "name": "bug-hunter",
+      "path": "skills/bug-hunter",
+      "category": "Review",
+      "use": "Run evidence-backed code and security reviews, with a Svelte-first lens.",
+      "why": "Separate reachable defects from speculation and refactoring preferences.",
+      "requirements": "Node.js 22+ for structured runtime; Git; optional current documentation/advisory access.",
+      "source": "https://github.com/codexstar69/bug-hunter",
+      "license": "MIT; locally adapted Svelte edition",
+      "subskills": [
+        "commit-security-scan",
+        "doc-lookup",
+        "fixer",
+        "hunter",
+        "recon",
+        "referee",
+        "security-review",
+        "skeptic",
+        "threat-model-generation",
+        "vulnerability-validation"
+      ]
+    },
+    {
+      "name": "codebase-design",
+      "path": "skills/codebase-design",
+      "category": "Architecture",
+      "use": "Design small interfaces that hide useful complexity.",
+      "why": "Keep behavior and maintenance knowledge local to a clear boundary.",
+      "requirements": "Project source and caller context.",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT; locally adapted edition"
+    },
+    {
+      "name": "create-verification-skill",
+      "path": "skills/create-verification-skill",
+      "category": "Verification",
+      "use": "Build project-local launch, drive, and proof instructions.",
+      "why": "Give future agents a repeatable way to exercise real behavior.",
+      "requirements": "The project runtime and its actual browser, CLI, API, or library driver.",
+      "source": "https://github.com/cursor/plugins/tree/main/pstack",
+      "license": "MIT upstream influence; locally rewritten workflow"
+    },
+    {
+      "name": "diagnosing-bugs",
+      "path": "skills/diagnosing-bugs",
+      "category": "Debugging",
+      "use": "Diagnose a reported failure or performance regression.",
+      "why": "Find discriminating evidence before changing code.",
+      "requirements": "A concrete symptom and access to the relevant implementation or runtime.",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT; locally adapted edition"
+    },
+    {
+      "name": "docx-tracked-changes",
+      "path": "skills/docx-tracked-changes",
+      "category": "Documents",
+      "use": "Report, accept, or reject supported inline Word revisions.",
+      "why": "Preserve restored text and original files while resolving revisions.",
+      "requirements": "Python 3; lxml; python-docx for regression tests; a document renderer for layout verification.",
+      "source": "https://github.com/JessePomeroy/rhubarb",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "find-skills",
+      "path": "skills/find-skills",
+      "category": "Skills",
+      "use": "Find and assess existing reusable skills.",
+      "why": "Reuse an appropriate maintained workflow instead of reinventing it.",
+      "requirements": "Web/source access; Node.js and the Skills CLI only for CLI-based discovery or installation.",
+      "source": "https://github.com/vercel-labs/skills",
+      "license": "MIT"
+    },
+    {
+      "name": "impeccable",
+      "path": "skills/impeccable",
+      "category": "Design",
+      "use": "Improve frontend hierarchy, typography, accessibility, and interaction.",
+      "why": "Make design decisions deliberate and grounded in the project.",
+      "requirements": "Frontend source; browser access for live verification; optional tools described by the skill.",
+      "source": "https://github.com/pbakaus/impeccable",
+      "license": "Apache-2.0; modified installed edition"
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "path": "skills/improve-codebase-architecture",
+      "category": "Architecture",
+      "use": "Compare caller-first designs for a concrete architectural problem.",
+      "why": "Recommend an improvement grounded in actual callers and constraints.",
+      "requirements": "Project source; codebase-design is a useful companion.",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT; locally adapted edition"
+    },
+    {
+      "name": "install-anti-slop",
+      "path": "skills/install-anti-slop",
+      "category": "Verification",
+      "use": "Install bundled anti-slop Oxlint rules into an authorized project.",
+      "why": "Enforce selected recurring code-quality rules mechanically.",
+      "requirements": "A compatible JavaScript/TypeScript project and its package manager; see the bundled version requirements.",
+      "source": "https://github.com/dmmulroy/anti-slop",
+      "license": "Bundled rule sources: MIT; wrapper is a personal-suite edition"
+    },
+    {
+      "name": "maintain-verification-skill",
+      "path": "skills/maintain-verification-skill",
+      "category": "Verification",
+      "use": "Check and update a project verification skill and feature map.",
+      "why": "Keep verification instructions aligned with source and live behavior.",
+      "requirements": "An existing project verification skill and the relevant runtime/driver.",
+      "source": "https://github.com/cursor/plugins/tree/main/pstack",
+      "license": "MIT upstream influence; locally rewritten workflow"
+    },
+    {
+      "name": "pdf-reader",
+      "path": "skills/pdf-reader",
+      "category": "Documents",
+      "use": "Read, search, and selectively render local PDF pages.",
+      "why": "Combine page-numbered text with visual evidence when layout matters.",
+      "requirements": "Python 3; Poppler: pdfinfo, pdftotext, and pdftoppm.",
+      "source": "https://github.com/JessePomeroy/rhubarb",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "project-audit",
+      "path": "skills/project-audit",
+      "category": "Review",
+      "use": "Coordinate a scoped audit across code, tests, security, UX, and architecture.",
+      "why": "Produce one evidence-backed report with honest coverage and limits.",
+      "requirements": "Applicable bundled skills; project-specific checks; live drivers for runtime claims.",
+      "source": "Personal maintained suite; earlier upstream provenance not recorded",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "punchlist",
+      "path": "skills/punchlist",
+      "category": "Design",
+      "use": "Audit UI against named defects with locations and evidence.",
+      "why": "Turn design criticism into concrete, assessable findings.",
+      "requirements": "Suitable rendered/screenshot input; independent critics when required by its protocol; Python helpers; optional report tooling.",
+      "source": "https://github.com/xenstalker02/punchlist",
+      "license": "MIT; local package"
+    },
+    {
+      "name": "redesign-existing-projects",
+      "path": "skills/redesign-existing-projects",
+      "category": "Design",
+      "use": "Improve an existing frontend while preserving its functionality.",
+      "why": "Replace generic or weak visual patterns using the existing stack.",
+      "requirements": "Project frontend and a rendered browser for meaningful visual verification.",
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "license": "MIT; preserved older redesign edition"
+    },
+    {
+      "name": "reflect",
+      "path": "skills/reflect",
+      "category": "Skills",
+      "use": "Review selected completed work and recurring corrections.",
+      "why": "Propose small durable improvements rather than accumulating generic rules.",
+      "requirements": "Selected conversation/task evidence; history tools are optional.",
+      "source": "https://github.com/cursor/plugins/tree/main/pstack",
+      "license": "MIT upstream influence; locally rewritten workflow"
+    },
+    {
+      "name": "svelte-best-practices",
+      "path": "skills/svelte-best-practices",
+      "category": "Implementation",
+      "use": "Apply modern Svelte 5 and SvelteKit patterns.",
+      "why": "Respect reactivity, ownership, SSR, accessibility, and server boundaries.",
+      "requirements": "A Svelte/SvelteKit project; current official docs for version-sensitive decisions.",
+      "source": "https://github.com/JessePomeroy/rhubarb",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "testprune",
+      "path": "skills/testprune",
+      "category": "Verification",
+      "use": "Audit or improve a noisy, slow, redundant, or unsafe test suite.",
+      "why": "Preserve meaningful invariants and trustworthy offline verification.",
+      "requirements": "Python 3 for inventory; the project test runner; explicit invocation where the host honors that policy.",
+      "source": "https://github.com/NeuraCerebra-AI/testprune",
+      "license": "MIT; locally maintained edition"
+    },
+    {
+      "name": "typesafe-ai",
+      "path": "skills/typesafe-ai",
+      "category": "Implementation",
+      "use": "Compose typed AI judgments and probabilities with application code.",
+      "why": "Keep workflow logic in code while using AI for semantic decisions.",
+      "requirements": "Current TypeSafe documentation; credentials and service access for explicitly authorized API work.",
+      "source": "https://github.com/typesafe-ai/skills",
+      "license": "MIT"
+    },
+    {
+      "name": "unclaimed",
+      "path": "skills/unclaimed",
+      "category": "Research",
+      "use": "Find and refresh single-word domain availability and pricing.",
+      "why": "Use the supporting CLI rather than guessing availability.",
+      "requirements": "Unclaimed CLI; network access; optional registrar configuration.",
+      "source": "https://github.com/iannuttall/unclaimed",
+      "license": "MIT"
+    },
+    {
+      "name": "ux-audit",
+      "path": "skills/ux-audit",
+      "category": "Design",
+      "use": "Exercise real user journeys in a live application.",
+      "why": "Find task-level confusion, blockers, and recovery problems.",
+      "requirements": "A real app instance; a supported browser driver; authorized test state.",
+      "source": "https://github.com/jezweb/claude-skills",
+      "license": "MIT; modified installed edition"
+    },
+    {
+      "name": "web-debug",
+      "path": "skills/web-debug",
+      "category": "Debugging",
+      "use": "Reproduce frontend failures and verify fixes in a real browser.",
+      "why": "Connect actual interactions, console/network evidence, and observable outcomes.",
+      "requirements": "A browser automation tool supplied by the active agent; relevant local/staging access.",
+      "source": "https://github.com/JessePomeroy/rhubarb",
+      "license": "See SOURCES.md"
+    },
+    {
+      "name": "youtube-transcript",
+      "path": "skills/youtube-transcript",
+      "category": "Research",
+      "use": "Retrieve YouTube captions with timestamps and source links.",
+      "why": "Summarize or search spoken content without a paid transcription service.",
+      "requirements": "Python 3; yt-dlp; network access; existing video captions.",
+      "source": "https://github.com/JessePomeroy/rhubarb",
+      "license": "See SOURCES.md"
+    }
+  ]
+}

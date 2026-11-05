@@ -1,0 +1,4 @@
+interface:
+  display_name: "Babysit"
+  short_description: "Carry approved changes through review and merge"
+  default_prompt: "Use $babysit to take these approved changes through commit, push, independent PR review, and merge when green."

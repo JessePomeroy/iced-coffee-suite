@@ -1,0 +1,61 @@
+[
+  {
+    "package": "find-skills",
+    "url": "https://github.com/vercel-labs/skills/blob/main/LICENSE",
+    "blob_sha": "eabe3008f6c0275929faa8b07d406e82717648cc",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "package": "impeccable",
+    "url": "https://github.com/pbakaus/impeccable/blob/main/LICENSE",
+    "blob_sha": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "package": "21st-ui-build",
+    "url": "https://github.com/21st-dev/skill/blob/main/LICENSE",
+    "blob_sha": "f599a0a50bed5f10fe460ed496843766f874ad2e",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "package": "ux-audit",
+    "url": "https://github.com/jezweb/claude-skills/blob/main/LICENSE",
+    "blob_sha": "6ea2e76c813f12b078e82823703d58033a04fee2",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "package": "unclaimed",
+    "url": "https://github.com/iannuttall/unclaimed/blob/main/LICENSE",
+    "blob_sha": "6b00ac7898fa34142d7f1a86f8510244429aac1e",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "packages": [
+      "codebase-design",
+      "improve-codebase-architecture",
+      "diagnosing-bugs"
+    ],
+    "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+    "blob_sha": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "packages": [
+      "blast-radius",
+      "create-verification-skill",
+      "maintain-verification-skill",
+      "reflect"
+    ],
+    "url": "https://github.com/cursor/plugins/blob/main/pstack/LICENSE",
+    "blob_sha": "6b5400237fdf6545be0b8fae370d6f2fcff8fb25",
+    "retrieved": "2026-11-05"
+  },
+  {
+    "packages": [
+      "redesign-existing-projects"
+    ],
+    "url": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
+    "blob_sha": "48a2f6640b81ff8eca9ce7f6a96337692713ef5b",
+    "retrieved": "2026-11-05"
+  }
+]

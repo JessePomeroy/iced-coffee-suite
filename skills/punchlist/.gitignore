@@ -1,0 +1,26 @@
+# Local audit output and working notes: never part of the published taxonomy.
+conventions.md
+punchlist-*.md
+out/
+output/
+tmp/
+__pycache__/
+*.py[cod]
+themes/theme.local.json
+# privacy-fixture-next-line
+output/**/*.pdf
+playwright-report/
+test-results/
+node_modules/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Never commit environment or credential material.
+.env
+.env.*
+*.pem
+*.key

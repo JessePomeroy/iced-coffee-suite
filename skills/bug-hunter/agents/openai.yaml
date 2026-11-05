@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Hunter — Svelte"
+  short_description: "Review Svelte state, SSR, async, and browser bugs"
+  default_prompt: "Use $bug-hunter for a read-only, Svelte-first review of this scope. Trace state ownership, component reuse, effects, async work, SSR/server boundaries, and relevant browser behavior. Challenge candidates with source evidence, distinguish verified bugs from refactor suggestions, and report coverage and verification gaps honestly."
