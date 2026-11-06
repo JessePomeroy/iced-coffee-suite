@@ -37,6 +37,45 @@ class InstallerTests(unittest.TestCase):
             self.assertTrue(link.destination.is_symlink())
             self.assertEqual(link.destination.resolve(), link.source)
 
+    def test_codex_compat_installs_checks_and_removes_both_roots(self):
+        links = self.links(agents=["codex", "gemini"], codex_compat=True)
+        self.assertEqual({link.destination for link in links}, {
+            self.home / ".agents/skills/diagnosing-bugs",
+            self.home / ".codex/skills/diagnosing-bugs",
+        })
+        installer.apply_links(links)
+        installer.apply_links(links)
+        self.assertTrue(all(installer.state(link) == "present" for link in links))
+        installer.apply_links(links, remove=True)
+        self.assertTrue(all(not link.destination.is_symlink() for link in links))
+        self.assertTrue(all((link.source / "SKILL.md").is_file() for link in links))
+
+    def test_codex_compat_conflict_preserves_both_roots(self):
+        links = self.links(codex_compat=True)
+        compatibility = self.home / ".codex/skills/diagnosing-bugs"
+        compatibility.parent.mkdir(parents=True)
+        compatibility.write_text("another installation")
+        with self.assertRaisesRegex(ValueError, "Conflicts"):
+            installer.apply_links(links)
+        self.assertFalse((self.home / ".agents/skills/diagnosing-bugs").exists())
+        self.assertEqual(compatibility.read_text(), "another installation")
+
+    def test_codex_compat_requires_codex_and_skills(self):
+        for names, agents in [(["diagnosing-bugs"], ["gemini"]), ([], ["codex"])]:
+            with self.assertRaisesRegex(ValueError, "--codex-compat requires"):
+                installer.make_links(ROOT, self.home, names, agents, [], codex_compat=True)
+
+    def test_codex_compat_cli_uses_the_flag_for_all_modes(self):
+        options = ["--agent", "codex", "--skill", "slice-loop-workflow", "--codex-compat"]
+        with patch.object(Path, "home", return_value=self.home), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(installer.main(options), 0)
+            self.assertFalse((self.home / ".agents").exists())
+            self.assertEqual(installer.main(options + ["--apply"]), 0)
+            self.assertEqual(installer.main(options + ["--check"]), 0)
+            self.assertEqual(installer.main(options + ["--remove", "--apply"]), 0)
+        self.assertFalse((self.home / ".agents/skills/slice-loop-workflow").is_symlink())
+        self.assertFalse((self.home / ".codex/skills/slice-loop-workflow").is_symlink())
+
     def test_conflict_prevents_all_mutations_and_preserves_content(self):
         links = self.links(names=["blast-radius", "diagnosing-bugs"])
         conflict = links[-1].destination

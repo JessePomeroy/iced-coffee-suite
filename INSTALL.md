@@ -23,6 +23,12 @@ or `--agent` flags as needed. It is a read-only preview by default. Explain the
 actual destinations and any conflicts, then use the same selection with `--apply`
 within the user's installation authorization.
 
+Codex defaults to `~/.agents/skills`. If the user's host also needs compatibility
+links in `~/.codex/skills`, include `--codex-compat` with `--agent codex` and the
+selected skills. Inspect both roots for conflicts first. Repeat this flag for
+apply, check, and removal; both roots must point to the same complete package.
+For custom configuration homes, use explicit `--skills-dir` paths instead.
+
 The installer uses links to this checkout. Do not copy individual SKILL.md files,
 move the checkout during installation, or export its absolute links to Git.
 Do not replace an existing package, even if its name matches. Compare contents,
@@ -51,6 +57,11 @@ moved by an explicitly authorized operation; the installer never overwrites it.
    not that an agent has loaded them.
 2. Start a fresh session or use the agent's supported reload. Ask it to identify
    the global instruction source and selected skills; use its discovery UI if available.
+   For a local Codex CLI, run `python3 scripts/check_codex_discovery.py --skill <name> --cwd /path/to/project`
+   with the same selection, or `--all` only if all packages were installed. The
+   diagnostic checks enabled manifests by canonical path, so a same-named skill
+   from another checkout does not substitute for the selected package. It does
+   not refresh a different host's running session or run a model task.
 3. Exercise a suitable read-only skill with the actual available tools. Distinguish
    installed instructions, available helper dependencies, and observed task behavior.
 4. Report installed packages, personalized instruction location, exact discovery
