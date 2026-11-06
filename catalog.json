@@ -194,6 +194,16 @@
       "license": "MIT upstream influence; locally rewritten workflow"
     },
     {
+      "name": "slice-loop-workflow",
+      "path": "skills/slice-loop-workflow",
+      "category": "Delivery",
+      "use": "Execute an ordered specification through implementation, PR review, merge, and Obsidian closeout.",
+      "why": "Keep each slice tied to acceptance criteria and record verified completion before starting the next.",
+      "requirements": "A canonical specification and handoff; a declared Obsidian vault; Git/PR tools; independent review capability; explicit authorization for repository and live effects.",
+      "source": "Personal maintained suite; portable edition of the existing Slice Loop workflow",
+      "license": "See SOURCES.md"
+    },
+    {
       "name": "svelte-best-practices",
       "path": "skills/svelte-best-practices",
       "category": "Implementation",

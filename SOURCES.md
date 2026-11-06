@@ -37,7 +37,7 @@ the upstream revision of every locally modified skill file.
 `babysit`, `blast-radius`, `codebase-design`, `create-verification-skill`,
 `diagnosing-bugs`, `docx-tracked-changes`, `improve-codebase-architecture`,
 `install-anti-slop`, `maintain-verification-skill`, `pdf-reader`, `project-audit`,
-`redesign-existing-projects`, `reflect`, `svelte-best-practices`, `web-debug`, and
+`redesign-existing-projects`, `reflect`, `slice-loop-workflow`, `svelte-best-practices`, `web-debug`, and
 `youtube-transcript` were copied from the maintained personal suite.
 
 The PDF, YouTube, browser, and Svelte workflows also have published snapshots in
@@ -58,6 +58,14 @@ entries `babysit` and `project-audit`, the publication review found no recorded
 earlier upstream source. That history remains unverified: this catalog does not
 assign them an inferred third-party license or claim the entire suite is uniformly
 MIT. The root license retains the limited scope stated above.
+
+`slice-loop-workflow` was added on 2026-11-06 from the existing personal workflow
+previously stored in Pi's private skill directory. Earlier upstream provenance
+was not recorded; no third-party license is inferred. The portable edition keeps
+its ordered slices, independent PR review, authorization gates, and required
+Obsidian closeout. It identifies project-specific destinations through the user's
+instructions and uses the active host's supported tools instead of requiring a
+Pi/T3 workflow launcher. The separate live personal package is unchanged.
 
 ## Changes made for portability
 

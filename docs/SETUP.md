@@ -6,15 +6,22 @@ Optional `agents/openai.yaml` files are UI metadata, not a runtime dependency.
 
 | Installer target | Skill links | Global instruction link, when requested |
 | --- | --- | --- |
-| `codex` | `~/.agents/skills/<name>` | `~/.codex/AGENTS.md` |
+| `codex` | `~/.agents/skills/<name>`; optionally `~/.codex/skills/<name>` with `--codex-compat` | `~/.codex/AGENTS.md` |
 | `claude` | `~/.claude/skills/<name>` | `~/.claude/CLAUDE.md` |
 | `gemini` | `~/.agents/skills/<name>` | `~/.gemini/GEMINI.md` |
 | `pi` | `~/.pi/agent/skills/<name>` | `~/.pi/agent/AGENTS.md` |
 
 Codex and Gemini share the same skill destination; selecting both creates one
-link per skill. The installer intentionally does not add legacy Codex links or
-separate Gemini skill aliases. Existing aliases may still expose another copy:
-inspect the host's full discovery list, and do not delete them without authority.
+link per skill. `--codex-compat` adds a second link to that same package for hosts
+that also need the older Codex path. It requires `--agent codex` and selected
+skills, and is opt-in during preview, apply, check, and removal. No separate Gemini
+aliases are created. Existing aliases may still expose another copy: inspect the
+host's full discovery list, and do not delete them without authority.
+
+Current official Codex documentation supports the shared path and symlinked skill
+folders. Compatibility links do not establish that every Codex version needs both
+roots. A host that scans both without deduplicating can show duplicate entries.
+Use one root where supported, and inspect the actual host's listing.
 
 The default paths assume the agents' normal configuration homes. If the user sets
 a custom configuration home, use `--skills-dir` and, if needed,
@@ -33,6 +40,12 @@ An agent without skill discovery can still read the relevant `skills/<name>/SKIL
 and supporting resources when explicitly directed. This does not automatically
 load every package or supply missing tool integrations.
 
+For local Codex, [the discovery diagnostic](VERIFY.md#actual-agent-discovery)
+checks a fresh `skills/list` response separately from filesystem link checks.
+Third-party harnesses may cache or inject their own skill inventory; verify their
+running session too. A correct CLI listing does not prove that another host has
+refreshed its catalog.
+
 ## Operating systems and remote sessions
 
 The installer requires Python 3.10+ and filesystem symlink support. Its automated
@@ -48,7 +61,8 @@ Claude Code; this adapter targets local Claude Code, not Cowork.
 
 ## Official references
 
-Checked 2026-11-05; recheck when a host changes discovery behavior.
+Codex guidance rechecked 2026-11-06; other host references checked 2026-11-05.
+Recheck when a host changes discovery behavior.
 
 - [Codex skills](https://learn.chatgpt.com/docs/build-skills)
 - [Codex global and project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md)

@@ -56,13 +56,18 @@ def make_links(
     instructions: Path | None = None,
     instructions_target: Path | None = None,
     remove: bool = False,
+    codex_compat: bool = False,
 ) -> list[Link]:
+    if codex_compat and ("codex" not in agents or not names):
+        raise ValueError("--codex-compat requires --agent codex and selected skills")
     catalog = {item["name"]: item for item in load_catalog(root)}
     unknown = set(names) - catalog.keys()
     if unknown:
         raise ValueError("Unknown skill(s): " + ", ".join(sorted(unknown)))
     home = absolute(home)
     skill_roots = [home / AGENTS[agent][0] for agent in agents]
+    if codex_compat:
+        skill_roots.append(home / ".codex/skills")
     skill_roots.extend(absolute(path) for path in skills_dirs)
     links = []
     for name in dict.fromkeys(names):
@@ -156,6 +161,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--list", action="store_true", help="list bundled top-level skills")
     parser.add_argument("--agent", action="append", choices=AGENTS, default=[], help="repeat for multiple agents")
     parser.add_argument("--skills-dir", action="append", type=Path, default=[], help="custom discovery directory")
+    parser.add_argument("--codex-compat", action="store_true",
+                        help="also link selected Codex skills into ~/.codex/skills")
     selection = parser.add_mutually_exclusive_group()
     selection.add_argument("--skill", action="append", default=[], help="select a catalog name; repeat as needed")
     selection.add_argument("--all", action="store_true", help="explicitly select every top-level package")
@@ -170,7 +177,7 @@ def main(argv: list[str] | None = None) -> int:
         catalog = load_catalog()
         if args.list:
             if any((args.agent, args.skills_dir, args.skill, args.all, args.instructions,
-                    args.instructions_target, args.apply, args.remove, args.check)):
+                    args.instructions_target, args.apply, args.remove, args.check, args.codex_compat)):
                 parser.error("--list must be used by itself")
             for item in catalog:
                 print(f"{item['name']}: {item['use']}")
@@ -189,7 +196,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.instructions and not args.agent and not args.instructions_target:
             parser.error("instructions need --agent or --instructions-target")
         links = make_links(ROOT, Path.home(), names, args.agent, args.skills_dir,
-                           args.instructions, args.instructions_target, args.remove)
+                           args.instructions, args.instructions_target, args.remove, args.codex_compat)
         states = [state(link, args.remove) for link in links]
         for link, status in zip(links, states):
             print(f"{status.upper():8} {link.destination} -> {link.source}")
@@ -198,7 +205,7 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         if args.check:
             if all(status == "present" for status in states):
-                print("Selected links match. Restart the agent and verify discovery separately.")
+                print("Selected links match. Agent discovery is a separate check; see docs/VERIFY.md.")
                 return 0
             print("Some selected links are missing.", file=sys.stderr)
             return 1

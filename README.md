@@ -3,7 +3,7 @@
 Reusable working agreements and skills for local coding agents. Keep one editable
 skill checkout, then link selected packages into each agent's discovery directory.
 
-There are 25 top-level packages, including Bug Hunter's 10 nested workflows.
+There are 26 top-level packages, including Bug Hunter's 10 nested workflows.
 The [catalog](docs/CATALOG.md) explains when to use each skill, why it exists, and
 which tools it needs. [Sources and licenses](SOURCES.md) distinguish maintained
 local editions from their upstream projects.
@@ -37,6 +37,21 @@ Use `--agent claude`, `--agent gemini`, or `--agent pi` for another supported lo
 agent. Repeat `--agent` to share the same packages across agents. For another tool,
 use its documented discovery directory with `--skills-dir /path/to/skills`.
 Choose relevant skills before using `--all`; a larger discovery list costs context.
+
+For a Codex host that also needs the older `~/.codex/skills` location, add
+`--codex-compat` to the same preview, apply, check, and removal commands. Both
+links point to one package; this option does not copy skill contents. The default
+shared path remains `~/.agents/skills`. See [adapter details](docs/SETUP.md).
+
+`--check` verifies links. To check whether a fresh local Codex CLI actually lists
+the selected manifests from this checkout, run:
+
+```zsh
+python3 scripts/check_codex_discovery.py --skill diagnosing-bugs --skill blast-radius --cwd /path/to/project
+```
+
+This separate diagnostic makes no model request. It reports missing, disabled,
+and differently sourced skills; refresh the agent session you intend to use too.
 
 No existing file, directory, or unrelated symlink is overwritten. Conflicts stop
 the entire plan before changes; compare and merge them manually. If link creation
@@ -72,6 +87,11 @@ Read the selected skill, resolve helper paths relative to its installed `SKILL.m
 and use the active agent's actual tools. Skills do not grant permission for edits,
 delegation, paid calls, Git actions, publishing, or access to other people's data.
 
+For specification-driven work, `slice-loop-workflow` follows one ordered slice
+through implementation, independent PR review, authorized merge, and required
+Obsidian closeout. It is an instruction skill and does not require a named
+workflow launcher. Configure the specification, handoff, and vault for your project.
+
 ## Update or remove
 
 Keep this checkout at a stable path: links point to it. Review Git state and the
@@ -87,6 +107,7 @@ python3 install.py --agent codex --skill diagnosing-bugs --skill blast-radius --
 
 Add `--apply` to remove matching links. Source packages and personalized instruction
 files are kept. An entry pointing elsewhere is a conflict and is left alone.
+If installation used `--codex-compat`, repeat it during removal to select both roots.
 If you move the checkout, inspect and remove the old links before relinking; the
 installer will not adopt or replace links to another checkout automatically.
 
